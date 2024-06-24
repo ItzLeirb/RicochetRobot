@@ -1,5 +1,6 @@
 from settings import *
 from sprites import *
+from time import time
 
 class Game():
     def __init__(self, cross_pos:tuple, robots:list[tuple]) -> None:
@@ -176,8 +177,10 @@ class Node(Game):
     
 
 if __name__ == '__main__':
+    start_time = time()
     game = Game(CROSS_POS, ROBOT_POS)
     for i in range(MAX_ITERATIONS):
         print(f'Current level: {game.max_generation+1}')
+        print(f'Elapsed Time: {time()-start_time}s')
         game.updateTree()
         if game.win: break
