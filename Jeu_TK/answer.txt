@@ -1,6 +1,8 @@
+f7
+f2
+i2
 switch
 b9
 i9
 switch
-i4
 i8

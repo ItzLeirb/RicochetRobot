@@ -77,6 +77,8 @@ class Game():
                 optimal_path.append(action)
             print(optimal_path[-1])
         
+        print(f'Optimal solution found in {len(path)-1} moves')
+        
         self.win = True
                 
     def updateTree(self) -> list:
@@ -95,8 +97,6 @@ class Node(Game):
     def __init__(self, state:list, path:list, main_game:Game, generation:int) -> None:
         self.state = state
         self.moves:list = path
-        if generation <= 3:
-            print(self.moves)
         self.children:list = []
         self.main_game = main_game
         
@@ -175,9 +175,9 @@ class Node(Game):
         self.checkVictory()
     
 
-
-game = Game(CROSS_POS, ROBOT_POS)
-for i in range(6):
-    print(f'Current level: {game.max_generation+1}')
-    game.updateTree()
-    if game.win: break
+if __name__ == '__main__':
+    game = Game(CROSS_POS, ROBOT_POS)
+    for i in range(MAX_ITERATIONS):
+        print(f'Current level: {game.max_generation+1}')
+        game.updateTree()
+        if game.win: break
