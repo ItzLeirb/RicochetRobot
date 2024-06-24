@@ -1,8 +1,10 @@
 f7
 f2
-i2
+b2
+switch
+b3
+i3
 switch
 b9
 i9
-switch
-i8
+i4
