@@ -111,7 +111,6 @@ class Node(Game):
             self.main_game.max_generation = self.generation
         self.possibles = POSSIBLES
         
-    
     def checkVictory(self) -> None:
         if self.active_robot == 0 and self.robots[self.active_robot] == self.cross.pos:
             self.win = True
@@ -154,8 +153,8 @@ class Node(Game):
                 coords = self.directionToCoords(action)
                 action = f'{coords[0]},{coords[1]}'
                 
-            if len(self.moves) > 2:
-                if action == self.moves[-2]:
+            for index in range(2, min(len(self.moves)+1, 7), 2):
+                if self.moves[-index] == action:
                     direction_useful = False
             
             if action != self.moves[-1] and direction_useful:
