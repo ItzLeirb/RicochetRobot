@@ -1,4 +1,7 @@
-# liste des fichiers ignores par git
+# Ignored files / folders
+/Ricochet-Master
+/Jeu_GT
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
