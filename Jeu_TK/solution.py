@@ -178,9 +178,12 @@ class Node(Game):
 
 if __name__ == '__main__':
     start_time = time()
+    loop_time = start_time
     game = Game(CROSS_POS, ROBOT_POS)
     for i in range(MAX_ITERATIONS):
         print(f'Current level: {game.max_generation+1}')
-        print(f'Elapsed Time: {time()-start_time}s')
+        print(f'Total elapsed Time: {time()-start_time}s')
+        print(f'Elapsed time this level: {time()-loop_time}s')
+        loop_time = time()
         game.updateTree()
         if game.win: break
