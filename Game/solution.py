@@ -17,7 +17,7 @@ class Game():
         self.moves = []
         self.max_generation = 0
         self.Tree = Node([self.robots, self.active_robot, self.cross, self.grid], ['Optimal Path:'], self, 0)
-        self.allChildren:list[list[Node]] = [[self.Tree], []]
+        self.allChildren:list[Node] = [self.Tree]
         self.list_index = 1
              
     def create_grid(self) -> list:
@@ -85,15 +85,10 @@ class Game():
         self.win = True
                 
     def updateTree(self) -> list:
-        self.list_index = (self.list_index + 1) % 2 # switches between 0 & 1
-        if self.allChildren[self.list_index] != [self.Tree]:
-            self.allChildren[self.list_index] = []
-        for parent in self.allChildren[(self.list_index+1)%2]:
-            for child in parent.children:
-                self.allChildren[self.list_index].append(child)
-            parent.children = []
-        for node in self.allChildren[self.list_index]:
+        for node in self.allChildren:
             node.generateChildren()
+            self.allChildren.pop(0)
+        
 
 class Node(Game):
     def __init__(self, state:list, path:list, main_game:Game, generation:int) -> None:
@@ -160,6 +155,7 @@ class Node(Game):
             
             if action != self.moves[-1] and direction_useful:
                 self.children.append(self.generateChild(action))
+                self.main_game.allChildren.append(self.children[-1])
     
     def update(self, action:str) -> None:
         if action == "s": 

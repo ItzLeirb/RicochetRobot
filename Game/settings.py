@@ -19,8 +19,8 @@ GRID = [
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
-ROBOT_POS = [((4, 6), True), ((1, 6), False)]
-CROSS_POS = (10,3)
+ROBOT_POS = [((5, 1), True), ((1, 6), False)]
+CROSS_POS = (11,6)
 
 # COLORS = {
 #     'red': "f01414",
