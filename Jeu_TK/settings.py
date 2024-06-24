@@ -20,7 +20,7 @@ GRID = [
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
 ROBOT_POS = [((5, 3), True), ((1, 6), False)]
-CROSS_POS = (2,8)
+CROSS_POS = (8,7)
 
 # COLORS = {
 #     'red': "f01414",
@@ -60,3 +60,9 @@ SPRITES = {
     'robot_chosen': ('▲', COLORS['yellow']),
     'robot_main_chosen': ('▲', COLORS['purple'])
 }
+
+FONT = 'Segoe UI Black bold'
+
+# TODO = [['s', 's'], ['d', 'u'], ['r', 'd'], ['s','l'], ['r','s'], ['d','r'], '']
+TODO = ['s', 'd', 'r', 's', 'r', 'd', '']
+POSSIBLES = ['s', 'u', 'd', 'l', 'r']

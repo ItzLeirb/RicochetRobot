@@ -9,7 +9,7 @@ class Game(tk.Tk):
     def __init__(self, cross_pos:tuple, robots:list[tuple], use_file:bool=True) -> None:
         super().__init__(screenName='Ricochet Robot')
         self.title = 'Ricochet Robot'
-        self.running = True
+        self.win = False
         self.grid:list[list[Floor | Wall]] = self.create_grid()
         self.cross = Cross(cross_pos)
         self.robots:list[Robot] = []
@@ -53,8 +53,11 @@ class Game(tk.Tk):
                 return i
         return -1
     
+    def getAction(self) -> str:
+        return self.instructions[self.current_instruction]
+    
     def update(self) -> None:       
-        action = self.instructions[self.current_instruction]
+        action = self.getAction()
         if "quit" in action or action == "":
             self.quit()
             return
@@ -68,7 +71,7 @@ class Game(tk.Tk):
             self.moves += 1
         else:
             try:
-                coordinates = (self.letterToCoordinate(action[-1]), int(action[:-1])-1)
+                coordinates = (self.letterToCoordinate(action[0]), int(action[1:])-1)
                 if not self.robots[self.active_robot].move(coordinates):
                     print("This move is illegal.")
                 else:
@@ -77,7 +80,7 @@ class Game(tk.Tk):
                 print("Bad input, try again.")
         self.drawGrid()
         if self.robots[self.active_robot].is_main and self.robots[self.active_robot].pos == self.cross.pos:
-            self.running = False
+            self.win = True
             print(f'You won in {self.moves} moves.')
       
     def switchRobot(self) -> None:
@@ -96,13 +99,15 @@ class Game(tk.Tk):
                 if len(reference.sprite) > 1:
                     index_color = (n_column + n_row) % len(reference.sprite)
                 else: index_color = 0
-                self.label_grid[n_row].append(tk.Label(self, background=reference.sprite[index_color], font=("Segoe UI bold", 30)))
+                self.label_grid[n_row].append(tk.Label(self, background=reference.sprite[index_color], font=(FONT, 30)))
                 self.label_grid[n_row][n_column].grid(column=n_column+1, row=n_row+1, sticky='nsew')
         tk.Label(self, background=COLORS['black']).grid(column=0, row=0, sticky='nsew')
         for row in range(len(self.grid)):
-            tk.Label(self, background=COLORS['black'], foreground=COLORS['white'], font=("Segoe UI bold", 22), text=str(row+1)).grid(column=0, row=row+1, sticky='nsew', ipadx=8)
+            tk.Label(self, background=COLORS['black'], foreground=COLORS['white'], font=(FONT, 22), text=str(row+1)).grid(column=0, row=row+1, sticky='nsew', ipadx=8)
         for col in range(len(self.grid[0])):
-            tk.Label(self, background=COLORS['black'], foreground=COLORS['white'], font=("Segoe UI bold", 22), text=ALPHABET[col].upper()).grid(column=col+1, row=0, sticky='nsew', ipady=8)
+            tk.Label(self, background=COLORS['black'], foreground=COLORS['white'], font=(FONT, 22), text=ALPHABET[col].upper()).grid(column=col+1, row=0, sticky='nsew', ipady=8)
+        
+        self.drawGrid()
                 
     def drawGrid(self) -> None:
         for n_row, row in enumerate(self.label_grid):
@@ -124,6 +129,6 @@ class Game(tk.Tk):
                 element.grid_configure(column=n_column+1, row=n_row+1, sticky='nsew')
                 
                 
-                    
-game = Game(CROSS_POS, ROBOT_POS)
-game.mainloop()
+if __name__ == "__main__":
+    game = Game(CROSS_POS, ROBOT_POS)
+    game.mainloop()

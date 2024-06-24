@@ -79,11 +79,10 @@ class Robot():
         return True
     
             
-    def move(self, destination_pos:tuple) -> bool: # success
+    def move(self, destination_pos) -> bool: # success
         path_is_valid = self.checkPath(self.pos, destination_pos)
         if not path_is_valid:
             return False
-        
         self.pos = destination_pos
         return True
         
