@@ -25,13 +25,14 @@ CROSS_POS = (4,6)
 POSSIBLES = ['s', 'u', 'd', 'l', 'r']
 
 COLORS = {
+    'red': "RED",
     'green': "GREEN",
     'lightgreen': "LIGHTGREEN",
     'darkgreen': "DARKGREEN",
     'purple': "MAGENTA",
     'black': "BLACK",
     'white': "WHITE",
-    'lightyellow': "LIGHTYELLOW"
+    'yellow': "YELLOW"
 }
 
 MAIN_DIR = path.dirname(__file__)
