@@ -9,7 +9,7 @@ GRID = [
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
-    [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1],
     [1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
@@ -24,26 +24,10 @@ CROSS_POS = (4,6)
 
 POSSIBLES = ['s', 'u', 'd', 'l', 'r']
 
-# COLORS = {
-#     'red': "f01414",
-#     'orange': "e67238",
-#     'yellow': "e1e614",
-#     'green': "14f014",
-#     'lightgreen': "38e172",
-#     'darkgreen': "0ad40a",
-#     'blue': "1414f0",
-#     'purple': "d414f0",
-#     'black': "0a0a0a",
-#     'white': "f5f5f5",
-# }
 COLORS = {
-    'red': "RED",
-    'orange': "ORANGE",
-    'yellow': "YELLOW",
     'green': "GREEN",
     'lightgreen': "LIGHTGREEN",
     'darkgreen': "DARKGREEN",
-    'blue': "BLUE",
     'purple': "MAGENTA",
     'black': "BLACK",
     'white': "WHITE",
