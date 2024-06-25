@@ -186,4 +186,6 @@ if __name__ == '__main__':
         print(f'Elapsed time this level: {time()-loop_time}s')
         loop_time = time()
         game.updateTree()
-        if game.win: break
+        if game.win: 
+            print(f'Found solution in {time()-start_time}s')
+            break

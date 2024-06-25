@@ -19,6 +19,7 @@ class Robot():
     
     def provideRobots(self, robots:list) -> None:
         self.robots = robots
+    
         
     def checkPath(self, path_start:tuple, path_end:tuple) -> bool:
         for robot in self.robots:

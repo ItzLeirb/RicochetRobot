@@ -19,8 +19,10 @@ GRID = [
 
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
 
-ROBOT_POS = [((5, 1), True), ((1, 6), False)]
-CROSS_POS = (11,6)
+ROBOT_POS = [((7, 9), True), ((1, 6), False)]
+CROSS_POS = (4,6)
+
+POSSIBLES = ['s', 'u', 'd', 'l', 'r']
 
 # COLORS = {
 #     'red': "f01414",
@@ -49,8 +51,7 @@ COLORS = {
 }
 
 MAIN_DIR = path.dirname(__file__)
-IMG_DIR = path.join(MAIN_DIR, "img")
-ANSWER_FILE = path.join(MAIN_DIR, "answer.txt")
+ANSWER_FILE = path.join(MAIN_DIR, 'answer.txt')
 SPRITES = {
     'wall': [COLORS['lightgreen']],
     'floor': (COLORS['darkgreen'], COLORS['green']),
@@ -62,9 +63,5 @@ SPRITES = {
 }
 
 FONT = 'Segoe UI Black bold'
-
-# TODO = [['s', 's'], ['d', 'u'], ['r', 'd'], ['s','l'], ['r','s'], ['d','r'], '']
-TODO = ['s', 'd', 'r', 's', 'r', 'd', '']
-POSSIBLES = ['s', 'u', 'd', 'l', 'r']
 
 MAX_ITERATIONS = 30
