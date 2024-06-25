@@ -3,7 +3,6 @@ switch
 b2
 g2
 switch
-h2
 i2
 i9
 b9

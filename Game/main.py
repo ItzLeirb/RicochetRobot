@@ -131,4 +131,4 @@ class Game(tk.Tk):
                 
 if __name__ == "__main__":
     game = Game(CROSS_POS, ROBOT_POS)
-    game.mainloop()
+    game.mainloop() 
